@@ -1,0 +1,25 @@
+from exercicios.criptografia import Cifrador
+
+cifrador = Cifrador(1)
+cifrador.cifrar('a')
+cifrador.cifrar('b')
+cifrador.cifrar('z')
+cifrador = Cifrador(2)
+cifrador.cifrar('a')
+cifrador.cifrar('b')
+cifrador.cifrar('z')
+cifrador = Cifrador(1)
+cifrador.decifrar('a')
+cifrador.decifrar('b')
+cifrador.decifrar('c')
+cifrador.decifrar('z')
+cifrador = Cifrador(1)
+cifrador.cifrar('renzo')
+cifrador.decifrar('sfoap')
+chave = [2, 1]
+cifrador = Cifrador(chave)
+cifrador.cifrar('abcd')
+chave = [15, 24, 19, 7, 14, 13]
+cifrador = Cifrador(chave)
+cifrador.cifrar('python')
+cifrador.decifrar('ewmoca')
