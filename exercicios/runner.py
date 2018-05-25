@@ -23,3 +23,4 @@ chave = [15, 24, 19, 7, 14, 13]
 cifrador = Cifrador(chave)
 cifrador.cifrar('python')
 cifrador.decifrar('ewmoca')
+cifrador.decifrar('ewmoca')
