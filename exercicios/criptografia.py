@@ -44,27 +44,20 @@ class Cifrador:
     """
 
     def __init__(self, chave):
-        self.chave = chave
-        self._chave_composta = type(chave) == list
-        self._forca = len(self.chave) if self._chave_composta else 1
+        self.chave = [chave] if isinstance(chave, int) else chave
+        self._forca = len(self.chave)
         self.dicionario = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     def _cript(self, texto):
         for i in enumerate(texto.upper()):
             if i[1] in self.dicionario:
-                if self._chave_composta:
-                    k = (self.dicionario.find(i[1]) + self.chave[i[0] % self._forca]) % 26
-                else:
-                    k = (self.dicionario.find(i[1]) + self.chave) % 26
+                k = (self.dicionario.find(i[1]) + self.chave[i[0] % self._forca]) % 26
                 yield self.dicionario[k].lower()
 
     def _decript(self, texto):
         for i in enumerate(texto.upper()):
             if i[1] in self.dicionario:
-                if self._chave_composta:
-                    k = self.dicionario.find(i[1]) - self.chave[i[0] % self._forca]
-                else:
-                    k = self.dicionario.find(i[1]) - self.chave
+                k = self.dicionario.find(i[1]) - self.chave[i[0] % self._forca]
                 yield self.dicionario[k].lower()
 
     def cifrar(self, texto):
